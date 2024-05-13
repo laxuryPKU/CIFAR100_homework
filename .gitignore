@@ -152,4 +152,13 @@ cython_debug/
 #.idea/
 
 # dataset
-*/cifar100
+**/cifar100
+
+# pipenv
+Pip*
+
+# checkpoint
+**/*bin
+
+# nohup
+**/*nohup*
