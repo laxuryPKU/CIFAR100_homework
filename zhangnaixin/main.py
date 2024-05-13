@@ -176,35 +176,35 @@ def main():
 
     # vit
     # 加分点：训练了 CNN 和 ViT
-    vit = timm.create_model(
-        "tiny_vit_21m_224.dist_in22k_ft_in1k", pretrained=False, num_classes=100
-    )
-    train(
-        vit,
-        seed=42,
-        device="cuda:0",
-        epochs=100,
-        batch_size=256,
-        learning_rate=1e-3,
-        weight_decay=1e-4,
-        save_dir="checkpoint/resnet50",
-    )
+    # vit = timm.create_model(
+    #     "tiny_vit_21m_224.dist_in22k_ft_in1k", pretrained=False, num_classes=100
+    # )
+    # train(
+    #     vit,
+    #     seed=42,
+    #     device="cuda:0",
+    #     epochs=100,
+    #     batch_size=256,
+    #     learning_rate=1e-3,
+    #     weight_decay=1e-4,
+    #     save_dir="checkpoint/vit",
+    # )
 
-    # resnet + different learning rate
-    # 加分点：比较不同超参作用
-    resnet = timm.create_model(
-        "resnetv2_50x1_bit.goog_distilled_in1k", pretrained=False, num_classes=100
-    )
-    train(
-        resnet,
-        seed=42,
-        device="cuda:0",
-        epochs=100,
-        batch_size=256,
-        learning_rate=1e-2,
-        weight_decay=1e-4,
-        save_dir="checkpoint/resnet50_diff_lr",
-    )
+    # # resnet + different learning rate
+    # # 加分点：比较不同超参作用
+    # resnet = timm.create_model(
+    #     "resnetv2_50x1_bit.goog_distilled_in1k", pretrained=False, num_classes=100
+    # )
+    # train(
+    #     resnet,
+    #     seed=42,
+    #     device="cuda:0",
+    #     epochs=100,
+    #     batch_size=256,
+    #     learning_rate=1e-2,
+    #     weight_decay=1e-4,
+    #     save_dir="checkpoint/resnet50_diff_lr",
+    # )
 
 
 if __name__ == "__main__":
