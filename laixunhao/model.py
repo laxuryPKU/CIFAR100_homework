@@ -1,23 +1,13 @@
 import torch
 import torch.nn as nn
-from timm.models.nfnet import NfCfg, NormFreeNet
-from timm.models.vision_transformer import VisionTransformer
+import timm
 
 
 class ConvNet(nn.Module):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.model = NormFreeNet(
-            NfCfg(
-                depths=(3, 4, 6, 3),
-                channels=(256, 512, 1024, 2048),
-                stem_chs=64,
-                bottle_ratio=0.25,
-                group_size=None,
-                act_layer="relu",
-                attn_layer=None,
-            ),
-            num_classes=100,
+        self.model = timm.create_model(
+            "convnextv2_base.fcmae_ft_in22k_in1k", pretrained=True, num_classes=100
         )
 
     def count_params(self):
@@ -33,13 +23,11 @@ class ConvNet(nn.Module):
 class ViT(nn.Module):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.model = VisionTransformer(
-            img_size=32,
-            patch_size=4,
-            embed_dim=384,
-            depth=12,
-            num_heads=6,
+        self.model = timm.create_model(
+            "vit_base_patch8_224.augreg_in21k_ft_in1k",
+            pretrained=True,
             num_classes=100,
+            img_size=(32, 32),
         )
 
     def count_params(self):
