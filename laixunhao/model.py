@@ -7,7 +7,7 @@ class ConvNet(nn.Module):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.model = timm.create_model(
-            "convnextv2_base.fcmae_ft_in22k_in1k", pretrained=True, num_classes=100
+            "dm_nfnet_f0.dm_in1k", pretrained=True, num_classes=100
         )
 
     def count_params(self):

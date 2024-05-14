@@ -20,11 +20,11 @@ class TrainingArguments:
     seed: int = 3407
     device: str = "cuda"
     image_size: Tuple[int] = (32, 32)
-    epochs: int = 50
+    epochs: int = 25
     warmup_epochs: int = 5
-    learning_rate: float = 1e-4
+    learning_rate: float = 5e-4
     weight_decay: float = 1e-2
-    batch_size: int = 128
+    batch_size: int = 256
     checkpoint: str = None
     save_epochs: int = -1
     save_dir: str = "checkpoint"
