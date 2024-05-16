@@ -165,3 +165,6 @@ Pip*
 
 # tmp
 tmp*
+
+# mac
+.DS_Store
